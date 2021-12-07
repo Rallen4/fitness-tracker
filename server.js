@@ -1,7 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const mongojs = require(mongojs);
+// const mongojs = require(mongojs);
 const path = require("path");
 
 const PORT = process.env.PORT || 3000;
@@ -73,11 +73,13 @@ app.get("/api/workouts/range", (req, res) => {
 })
 
 app.get("/exercise", (req, res)=> {
-    res.redirect("/excercise.html");
+    // res.redirect("/excercise.html");
+    res.sendFile(path.join(__dirname, "./public/exercise.html"))
 });
 
 app.get("/stats", (req, res)=> {
-    res.redirect("/stats.html");
+    // res.redirect("/stats.html");
+    res.sendFile(path.join(__dirname, "./public/stats.html"))
 });
 
 app.put("/api/workouts/:id", (req, res)=> {
